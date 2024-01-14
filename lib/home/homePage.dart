@@ -4,13 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sharedpreferences_riverpod_flutter/main.dart';
 import 'package:sharedpreferences_riverpod_flutter/model/Language.dart';
 import '../navigator.dart';
+import '../provider/localizationProvider.dart';
 import '../utils/languageConstants.dart';
 
 /**
  * Created by Aashis on 10,January,2024
  */
 
-/*final counterProvider = StateProvider((ref) => 0);
+final counterProvider = StateProvider((ref) => 0);
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -35,8 +36,9 @@ class HomePage extends ConsumerWidget {
               ),
               onChanged: (Language? language) async {
                 if (language != null) {
-                  Locale _locale = await setLocale(language.languageCode);
-                  SampleApp.setLocale(context, _locale);
+                  // Locale _locale = await setLocale(language.languageCode);
+                  // SampleApp.setLocale(context, _locale);
+                  ref.read(isLocalizationProvider.notifier).setLocalization(language.languageCode);
                 }
               },
               items: Language.languageList()
@@ -82,9 +84,9 @@ Column _homeBody(BuildContext context) {
   return Column(
     children: [Text(translation(context).personalInformation)],
   );
-}*/
+}
 
-class HomePage extends StatefulWidget {
+/*class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
@@ -148,4 +150,4 @@ Column _homeBody(BuildContext context) {
   return Column(
     children: [Text(translation(context).personalInformation)],
   );
-}
+}*/

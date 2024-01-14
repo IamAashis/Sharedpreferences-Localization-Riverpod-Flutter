@@ -4,16 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'constants/sharedPreferencesConstants.dart';
+
 /**
  * Created by Aashis on 14,January,2024
  */
 
-const String LANGUAGECODE = 'languageCode';
-
-const String ENGLISH = 'en';
-const String FARSHI = 'fa';
-const String ARABIC = 'ar';
-const String HINDI = 'hi';
 
 Locale _locale(String languageCode) {
   switch (languageCode) {

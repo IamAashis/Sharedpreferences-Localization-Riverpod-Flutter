@@ -3,3 +3,8 @@
  */
 
 const String sharedDarkModeKey = 'isDarkMode';
+const String LANGUAGECODE = 'languageCode';
+const String ENGLISH = 'en';
+const String FARSHI = 'fa';
+const String ARABIC = 'ar';
+const String HINDI = 'hi';
