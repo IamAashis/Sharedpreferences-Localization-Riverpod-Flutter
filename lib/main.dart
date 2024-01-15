@@ -38,9 +38,7 @@ class SampleApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDark = ref.watch(isDarkProvider);
-    print("Rebuilding with watched locale: " + isDark.toString());
-    Locale _locale = ref.watch(isLocalizationProvider);
-    print("Rebuilding with watched locale: " + _locale.toString());
+    Locale locale = ref.watch(isLocalizationProvider);
 
     return MaterialApp(
       localizationsDelegates: const [
@@ -54,7 +52,7 @@ class SampleApp extends ConsumerWidget {
       darkTheme: darkTheme,
       themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
       routes: Routes.routes,
-      locale: _locale,
+      locale: locale,
       debugShowCheckedModeBanner: false,
     );
   }

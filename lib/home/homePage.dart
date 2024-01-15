@@ -10,8 +10,6 @@ import '../utils/LocalizationUtils.dart';
  * Created by Aashis on 10,January,2024
  */
 
-final counterProvider = StateProvider((ref) => 0);
-
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
@@ -19,14 +17,14 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter example'),
+        title: const Text('Localization'),
         actions: <Widget>[
           IconButton(
             onPressed: () => AppNavigator().navToSettingsPage(context),
             icon: const Icon(Icons.settings),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.only(left: 0, right: 4.0, top: 0, bottom: 0),
             child: DropdownButton<Language>(
               underline: SizedBox(),
               icon: const Icon(
@@ -35,7 +33,9 @@ class HomePage extends ConsumerWidget {
               ),
               onChanged: (Language? language) async {
                 if (language != null) {
-                  ref.read(isLocalizationProvider.notifier).setLocalization(language.languageCode);
+                  ref
+                      .read(isLocalizationProvider.notifier)
+                      .setLocalization(language.languageCode);
                 }
               },
               items: Language.languageList()
@@ -55,30 +55,20 @@ class HomePage extends ConsumerWidget {
                   )
                   .toList(),
             ),
-          )
-        ],
-      ),
-      body: Column(
-        children: [
-          Consumer(
-            builder: (context, ref, _) {
-              final count = ref.watch(counterProvider.state).state;
-              return Text('$count');
-            },
           ),
-          _homeBody(context)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(translation(context).language),
+          ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => ref.read(counterProvider.state).state++,
-        child: const Icon(Icons.add),
-      ),
+      body: Container(child: _homeBody(context)),
     );
   }
 }
 
-Column _homeBody(BuildContext context) {
-  return Column(
-    children: [Text(translation(context).personalInformation)],
+Center _homeBody(BuildContext context) {
+  return Center(
+    child: Text(translation(context).language),
   );
 }

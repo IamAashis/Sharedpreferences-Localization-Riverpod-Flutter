@@ -13,8 +13,6 @@ Locale locale(String languageCode) {
   switch (languageCode) {
     case ENGLISH:
       return const Locale(ENGLISH, '');
-    case FARSHI:
-      return const Locale(FARSHI, '');
     case ARABIC:
       return const Locale(ARABIC, '');
     case HINDI:
