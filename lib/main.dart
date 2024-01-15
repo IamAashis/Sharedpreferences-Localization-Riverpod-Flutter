@@ -49,8 +49,6 @@ class SampleApp extends ConsumerWidget {
         GlobalCupertinoLocalizations.delegate,
         ...AppLocalizations.localizationsDelegates
       ],
-      // localizationsDelegates: AppLocalizations.localizationsDelegates,
-      // supportedLocales: [Locale('ja', 'JP')],
       supportedLocales: AppLocalizations.supportedLocales,
       theme: lightTheme,
       darkTheme: darkTheme,

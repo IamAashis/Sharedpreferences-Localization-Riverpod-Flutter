@@ -35,8 +35,6 @@ class HomePage extends ConsumerWidget {
               ),
               onChanged: (Language? language) async {
                 if (language != null) {
-                  // Locale _locale = await setLocale(language.languageCode);
-                  // SampleApp.setLocale(context, _locale);
                   ref.read(isLocalizationProvider.notifier).setLocalization(language.languageCode);
                 }
               },

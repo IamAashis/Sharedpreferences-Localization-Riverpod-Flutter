@@ -19,6 +19,8 @@ Locale locale(String languageCode) {
       return const Locale(ARABIC, '');
     case HINDI:
       return const Locale(HINDI, '');
+    case NEPALI:
+      return const Locale(NEPALI, '');
     default:
       return const Locale(ENGLISH, '');
   }

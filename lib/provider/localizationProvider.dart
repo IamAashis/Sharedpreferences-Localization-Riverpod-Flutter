@@ -9,7 +9,6 @@ import '../utils/constants/sharedPreferencesConstants.dart';
 /**
  * Created by Aashis on 14,January,2024
  */
-
 final isLocalizationProvider =
     StateNotifierProvider<LocalizationNotifier, Locale>((ref) {
   return LocalizationNotifier(ref: ref);
@@ -18,6 +17,7 @@ final isLocalizationProvider =
 class LocalizationNotifier extends StateNotifier<Locale> {
   Ref ref;
 
+  // Locale(ENGLISH sending  default value of english in first
   LocalizationNotifier({required this.ref}) : super(locale(ENGLISH)) {
     state = ref.watch(sharedUtilityProvider).getLocaleNew();
   }
